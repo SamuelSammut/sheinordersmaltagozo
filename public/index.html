@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shein Malta & Gozo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* A light grey background */
+        }
+        .container-lg {
+            padding-top: 2rem;
+        }
+        .form-section {
+            background-color: #ffffff; /* White background for the form */
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Soft shadow for depth */
+        }
+        .btn-primary {
+            background-color: #007bff; /* Bootstrap primary color */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container-lg">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="form-section">
+                    <h2 class="text-center">Place Order</h2>
+                    <p class="lead text-center">Enhance your shopping experience by completing the form below with your details, by providing us with the item SKU number (found in the description of the item), specifying the size, colour and quantity of the desired item.</p>
+                    <p class="lead text-center">After submitting the form, you will receive an email confirmation with the order number and we will send you a request on Revolut on the mobile number provided.</p>
+                    <p class="lead text-center">Once we receive your payment, we'll send you an email confirmation, assuring you that the payment is received along with an estimated delivery date.</p>
+
+                    <h4 class="mt-4">Personal Details</h4>
+                    <form id="form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="name" name="name" minlength="2" maxlength="30" placeholder="Joseph" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="surname" class="form-label">Surname: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="surname" name="surname" minlength="2" maxlength="30" placeholder="Borg"  required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail: <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="email" name="email" minlength="5" maxlength="30" placeholder="josephborg@gmail.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contactnumber" class="form-label">Contact number: <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1">+356</span>
+                                <input type="tel" class="form-control" name="contactnumber" id="contactnumber" placeholder="99123456" pattern="\d{8}" title="Please enter an 8-digit number" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="houseNameNumber" class="form-label">House Name/Number: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="housenumber" minlength="1" maxlength="50" id="houseNameNumber" placeholder="27, Oak Cottage" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addressLine1" class="form-label">Address Line 1: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control"  minlength="10" maxlength="200" name="addressline1" id="addressLine1" placeholder="Triq il-Kbira" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addressLine2" class="form-label">Address Line 2:</label>
+                            <input type="text" class="form-control" maxlength="200" name="addressLine2" id="addressLine2">
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="form-label">City: <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" minlength="3" maxlength="100" name="city" id="city" placeholder="Sliema" required>
+                        </div>
+                        <h4 class="mt-4">Add Items</h4>
+                        <div id="itemFieldsWrap">
+                            <div class="itemFields mb-3">
+                                <div class="row g-3 align-items-center">
+                                    <div class="col-md-3">
+                                        <label for="sku" class="col-form-label">SKU Number: <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" minlength="5" maxlength="100" id="sku" name="SKU" placeholder="sz2308035052063303"  required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="size" class="col-form-label">Size: <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" minlength="1" maxlength="50" id="size" name="size" placeholder="XL" maxlength="10" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="color" class="col-form-label">Color: <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="color" minlength="2" maxlength="50" name="color" placeholder="Blue" maxlength="20" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="quantity" class="col-form-label">Quantity: <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="quantity" name="quantity" placeholder="0" min="1" max="100" required>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <button type="button" id="addItemButton" class="btn btn-info">Add More Items</button>
+                        </div>
+
+                        <h4 class="mt-4">Select Delivery Option</h4>
+
+                        <div class="mb-3">
+                            <label for="deliveryOptions" class="form-label">Delivery Options: <span class="text-danger">*</span></label>
+                            <select class="form-control" id="deliveryOptions" name="deliveryOptions" required>
+                                <option value="" disabled selected>Select your option</option>
+                                <option value="Pick-up Gharghur">Pick-up Gharghur</option>
+                                <option value="Pick-up Birzebbuga">Pick-up Birzebbuga</option>
+                                <option value="Delivery North - €3.00">Delivery North - €3.00</option>
+                                <option value="Delivery Central/South - €2.00">Delivery Central/South - €2.00</option>
+                                <option value="Delivery Gozo - €5.00">Delivery Gozo - €5.00</option>
+                            </select>
+                        </div>
+                        
+
+                        
+
+                        <div class="text-center">
+                            <button type="submit" id="submitForm" class="btn btn-primary mt-4">Submit Order</button>
+                        </div>
+
+                    </form>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="FormHandler.js"></script>
+<script src="home.js"></script>
+<script src="validateForm.js"></script>
+   
+</body>
+</html>
