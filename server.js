@@ -31,7 +31,7 @@ function formatFieldName(fieldName) {
 
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000; // Use Heroku's port or default to 3000 for local development
 app.use(express.static('public'));
 // Use bodyParser middleware to parse JSON bodies
 app.use(bodyParser.json());
