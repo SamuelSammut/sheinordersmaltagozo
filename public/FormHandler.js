@@ -63,12 +63,9 @@ class FormHandler {
         .catch(error => {
             console.error('Error submitting form', error);
         })
-
+    }
     }
 
-    }
-
-// Automatic initialization
 document.addEventListener('DOMContentLoaded', function() {
     const formId = 'form'; 
     new FormHandler(formId);

@@ -20,7 +20,6 @@ class ItemAdder {
             input.value = ''; // Clear input values for the clone
             const name = input.getAttribute('name');
             if(name) {
-                // Assuming the name format is `attribute[index]`, find the last item index and increment it
                 const lastItemIndex = this.itemsWrap.querySelectorAll('.itemFields').length - 1; // Get current last index
                 const newName = name.replace(/\[\d+\]$/, `[${lastItemIndex + 1}]`); // Increment index for new item
                 input.setAttribute('name', newName); // Set the new name with updated index
@@ -53,11 +52,11 @@ class ItemAdder {
     
     appendRemoveButtonToLastColumn(itemFields) {
         const removeButton = this.createRemoveButton();
-        removeButton.style.transform = 'translateY(17px)'; // Adjust the pixel value as needed
+        removeButton.style.transform = 'translateY(17px)'; 
 
         // Create a new column for the remove button
         const buttonColumn = document.createElement('div');
-        buttonColumn.className = 'col-sm-1 d-flex justify-content-center align-items-center'; // Adjusting to col-md-2 for the button
+        buttonColumn.className = 'col-sm-1 d-flex justify-content-center align-items-center'; 
         buttonColumn.appendChild(removeButton);
     
         // Append the buttonColumn to the row
